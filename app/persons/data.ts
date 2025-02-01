@@ -14,7 +14,7 @@ export const persons: PersonDetails[] = [
       "Savior of the Galaxy",
       "N7 Operative",
     ],
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/persons/user.jpg",
     type: "military",
     details: {
       biography:

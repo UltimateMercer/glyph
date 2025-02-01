@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { persons } from "./data";
-import { PersonDrawer } from "@/components/person-drawer";
+import { PersonDialog, PersonDrawer } from "@/components/person-drawer";
 
 // const persons = [
 //   {
@@ -208,7 +208,7 @@ export default function PersonsPage() {
                 src={person.image || "/placeholder.svg"}
                 alt={person.name}
                 fill
-                className="rounded-t-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                className="rounded-t-lg object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/50 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -261,7 +261,13 @@ export default function PersonsPage() {
         ))}
       </div>
 
-      <PersonDrawer
+      {/* <PersonDrawer
+        person={selectedPerson}
+        open={!!selectedPerson}
+        onClose={() => setSelectedPerson(null)}
+      /> */}
+
+      <PersonDialog
         person={selectedPerson}
         open={!!selectedPerson}
         onClose={() => setSelectedPerson(null)}
