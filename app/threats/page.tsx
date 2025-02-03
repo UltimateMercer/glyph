@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
@@ -299,7 +299,10 @@ export default function ThreatsPage() {
                     {threat.type}
                   </div>
                   <div className="h-1 w-1 rounded-full bg-blue-400" />
-                  <Badge variant="secondary" className="bg-blue-900/20">
+                  <Badge
+                    variant="secondary"
+                    className="text-white bg-blue-400/20"
+                  >
                     {threat.status}
                   </Badge>
                 </div>
@@ -344,40 +347,39 @@ export default function ThreatsPage() {
         open={!!selectedThreat}
         onOpenChange={() => setSelectedThreat(null)}
       >
-        <DialogContent className="max-h-[90vh] max-w-4xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
-          <ScrollArea className="h-full max-h-[80vh] pr-4">
-            {selectedThreat && (
+        {selectedThreat && (
+          <DialogContent className="max-h-[90vh] max-w-4xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
+            <DialogHeader>
+              <div className="flex items-center justify-between py-2">
+                <DialogTitle className="text-2xl font-bold text-blue-100">
+                  {selectedThreat.name}
+                </DialogTitle>
+                <Badge
+                  variant="outline"
+                  className={cn(
+                    "border-cyan-400/30 bg-blue-950/50",
+                    selectedThreat.level === "Omega" &&
+                      "border-red-500/50 text-red-400",
+                    selectedThreat.level === "Critical" &&
+                      "border-orange-500/50 text-orange-400",
+                    selectedThreat.level === "High" &&
+                      "border-yellow-500/50 text-yellow-400",
+                    selectedThreat.level === "Medium" &&
+                      "border-blue-500/50 text-blue-400",
+                    selectedThreat.level === "Low" &&
+                      "border-green-500/50 text-green-400"
+                  )}
+                >
+                  {selectedThreat.level} Level Threat
+                </Badge>
+              </div>
+              <DialogDescription className="text-blue-300">
+                {selectedThreat.description}
+              </DialogDescription>
+            </DialogHeader>
+            <ScrollArea className="h-full max-h-[70vh] pr-4">
               <>
-                <DialogHeader>
-                  <div className="flex items-center justify-between">
-                    <DialogTitle className="text-2xl font-bold text-blue-100">
-                      {selectedThreat.name}
-                    </DialogTitle>
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        "border-cyan-400/30 bg-blue-950/50",
-                        selectedThreat.level === "Omega" &&
-                          "border-red-500/50 text-red-400",
-                        selectedThreat.level === "Critical" &&
-                          "border-orange-500/50 text-orange-400",
-                        selectedThreat.level === "High" &&
-                          "border-yellow-500/50 text-yellow-400",
-                        selectedThreat.level === "Medium" &&
-                          "border-blue-500/50 text-blue-400",
-                        selectedThreat.level === "Low" &&
-                          "border-green-500/50 text-green-400"
-                      )}
-                    >
-                      {selectedThreat.level} Level Threat
-                    </Badge>
-                  </div>
-                  <DialogDescription className="text-blue-300">
-                    {selectedThreat.description}
-                  </DialogDescription>
-                </DialogHeader>
-
-                <div className="mt-6 space-y-6">
+                <div className="mt-6 space-y-6 pb-4">
                   {/* Basic Info */}
                   <div className="grid gap-4 md:grid-cols-3">
                     <div className="space-y-2">
@@ -550,7 +552,7 @@ export default function ThreatsPage() {
                         {selectedThreat.intelligence}
                       </p>
                     </div>
-
+                    <Separator className="border-blue-900/50" />
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
                         <Skull className="h-4 w-4 text-red-400" />
@@ -565,9 +567,9 @@ export default function ThreatsPage() {
                   </div>
                 </div>
               </>
-            )}
-          </ScrollArea>
-        </DialogContent>
+            </ScrollArea>
+          </DialogContent>
+        )}
       </Dialog>
     </div>
   );
