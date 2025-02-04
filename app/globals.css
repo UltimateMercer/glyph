@@ -167,7 +167,7 @@ body::before {
     transparent
   );
   animation: scan 2s linear infinite;
-  z-index: 100;
+  z-index: 0;
   pointer-events: none;
 }
 
