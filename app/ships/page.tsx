@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
@@ -14,15 +14,12 @@ import {
   Anchor,
   Shield,
   Rocket,
-  Zap,
   History,
   Users,
   Swords,
   Cpu,
   Target,
   Gauge,
-  Power,
-  Crosshair,
   Star,
 } from "lucide-react";
 import Image from "next/image";
