@@ -261,7 +261,7 @@ export function PersonDialog({ person, open, onClose }: PersonDrawerProps) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
+      <DialogContent className="max-w-5xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-blue-100">
             Individual Profile
@@ -270,15 +270,13 @@ export function PersonDialog({ person, open, onClose }: PersonDrawerProps) {
         <div className="flex gap-4 py-2">
           <Image
             src={person.image || "/persons/user.jpg"}
-            className="rounded-lg object-cover size-20"
+            className="rounded-lg object-cover size-60"
             alt={person.name}
-            width={80}
-            height={80}
+            width={240}
+            height={240}
           />
-          <div className="">
-            <h2 className="text-xl text-blue-100 font-bold mb-2">
-              {person.name}
-            </h2>
+          <div className="flex flex-1 flex-col gap-4">
+            <h2 className="text-xl text-blue-100 font-bold">{person.name}</h2>
             <div className="flex flex-wrap gap-2">
               <Badge
                 variant="outline"
@@ -292,6 +290,15 @@ export function PersonDialog({ person, open, onClose }: PersonDrawerProps) {
               >
                 {person.status}
               </Badge>
+            </div>
+
+            <Separator className="bg-white" />
+
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium text-blue-400">Biography</h3>
+              <p className="text-sm text-blue-300">
+                {person.details?.biography || person.description}
+              </p>
             </div>
           </div>
         </div>
@@ -316,15 +323,15 @@ export function PersonDialog({ person, open, onClose }: PersonDrawerProps) {
               </div>
             </div>
 
-            <Separator className="bg-white" />
+            {/* <Separator className="bg-white" /> */}
 
             {/* Biography */}
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <h3 className="text-sm font-medium text-blue-400">Biography</h3>
               <p className="text-sm text-blue-300">
                 {person.details?.biography || person.description}
               </p>
-            </div>
+            </div> */}
 
             {person.details?.specializations && (
               <>
