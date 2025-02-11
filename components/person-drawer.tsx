@@ -264,7 +264,7 @@ export function PersonDialog({ person, open, onClose }: PersonDrawerProps) {
       <DialogContent className="max-w-5xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-blue-100">
-            Individual Profile
+            Profile
           </DialogTitle>
         </DialogHeader>
         <div className="flex gap-4 py-2">
