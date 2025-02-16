@@ -456,7 +456,7 @@ export default function Home() {
         </div>
       </section>
       <Dialog open={showReport} onOpenChange={setShowReport}>
-        <DialogContent className="max-w-4xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
+        <DialogContent className="max-w-5xl border-blue-900/50 bg-blue-950/90 backdrop-blur-md">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-blue-100">
               Galactic Status Report
@@ -464,7 +464,7 @@ export default function Home() {
           </DialogHeader>
 
           <ScrollArea className="h-[450px]">
-            <div className="grid gap-6 pr-5">
+            <div className="grid gap-5 pr-5">
               {/* Council Space */}
               <div className="space-y-4">
                 <h3 className="flex items-center text-lg font-semibold text-blue-100">
