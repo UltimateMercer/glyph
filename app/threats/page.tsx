@@ -89,7 +89,7 @@ export default function ThreatsPage() {
           <Card
             key={threat.name}
             className="group relative overflow-hidden border-blue-900/50 bg-blue-950/20 backdrop-blur-sm transition-all duration-200 hover:bg-blue-950/30"
-            onClick={() => setSelectedThreat(threat)}
+            onClick={() => setSelectedThreat(threat as ThreatDetails)}
             role="button"
             tabIndex={0}
           >
