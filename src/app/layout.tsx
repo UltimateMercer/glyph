@@ -31,7 +31,7 @@ export default function RootLayout({
           {/* <div className="mb-4">
               <CommandMenuTrigger />
             </div> */}
-          <SidebarInset className="px-5 pt-2.5 pb-5">
+          <SidebarInset className="border dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 px-5 pt-2.5 pb-5">
             <div className="flex justify-end mb-4">
               <ThemeToggle />
             </div>

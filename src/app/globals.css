@@ -53,8 +53,8 @@
 
   /* Animações customizadas */
   --animate-glow: glow 2s ease-in-out infinite;
-  --animate-scan: scan 2s linear infinite;
-  --animate-scan-light: scan 3s linear infinite;
+  /* --animate-scan: scan 2s linear infinite; */
+  /* --animate-scan-light: scan 3s linear infinite; */
   --animate-float: float 3s ease-in-out infinite;
   --animate-spin-slow: spin-slow 8s linear infinite;
   --animate-spin-slow-reverse: spin-slow-reverse 6s linear infinite;
@@ -113,6 +113,8 @@
   }
 }
 
+/* Comentando o keyframe do scan para desativar completamente */
+/*
 @keyframes scan {
   0% {
     transform: translateY(0);
@@ -121,6 +123,7 @@
     transform: translateY(100vh);
   }
 }
+*/
 
 @keyframes float {
   0%,
@@ -267,7 +270,7 @@
   }
 
   /* Light theme */
-  [data-theme="light"] body {
+  body {
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 28h-3v-3h3v3zm-9-6h3v3h-3v-3zm6 3h3v3h-3v-3zm-3 3h3v3h-3v-3zm3 3h3v3h-3v-3zm-3 3h3v3h-3v-3z' fill='rgba(0,128,255,0.08)' fill-rule='evenodd'/%3E%3C/svg%3E"),
       radial-gradient(
         circle at 50% 50%,
@@ -293,7 +296,8 @@
     color: rgb(30, 41, 59);
   }
 
-  /* Holographic scan line - Dark theme */
+  /* SCAN LINE REMOVIDO - Comentando os pseudo-elementos ::before que criam o scan */
+  /*
   [data-theme="dark"] body::before {
     content: "";
     position: fixed;
@@ -313,7 +317,6 @@
     pointer-events: none;
   }
 
-  /* Holographic scan line - Light theme */
   [data-theme="light"] body::before {
     background: linear-gradient(
       to right,
@@ -324,8 +327,9 @@
     );
     animation: var(--animate-scan-light);
   }
+  */
 
-  /* Ambient pattern - Dark theme */
+  /* Ambient pattern - Dark theme - MANTIDO */
   [data-theme="dark"] body::after {
     content: "";
     position: fixed;
@@ -344,7 +348,7 @@
     z-index: 10;
   }
 
-  /* Ambient pattern - Light theme */
+  /* Ambient pattern - Light theme - MANTIDO */
   [data-theme="light"] body::after {
     background-image: repeating-linear-gradient(
       45deg,
@@ -576,4 +580,64 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* body {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 28h-3v-3h3v3zm-9-6h3v3h-3v-3zm6 3h3v3h-3v-3zm-3 3h3v3h-3v-3zm3 3h3v3h-3v-3zm-3 3h3v3h-3v-3z' fill='rgba(0,128,255,0.05)' fill-rule='evenodd'/%3E%3C/svg%3E"),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(0, 128, 255, 0.15) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(0, 128, 255, 0.2) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 0% 100%,
+        rgba(0, 64, 128, 0.2) 0%,
+        transparent 50%
+      ),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.98));
+    min-height: 100vh;
+  } */
+
+  /* Holographic scan line */
+  /* body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(0, 128, 255, 0.5),
+      rgba(0, 255, 255, 0.5),
+      transparent
+    );
+    animation: scan 2s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  } */
+
+  /* Ambient pattern */
+  /* body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0, 128, 255, 0.05) 0px,
+      rgba(0, 128, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 10;
+  } */
 }
