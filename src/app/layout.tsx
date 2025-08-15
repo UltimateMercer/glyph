@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarInset } from "@/components/ui/sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
 // import { ThemeProvider } from "./lib/theme-context"
 // import { SidebarLayout } from "./components/sidebar"
 // import { CommandMenuTrigger } from "./components/command-menu-trigger"
@@ -23,11 +26,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
+          <AppSidebar />
           {/* <SidebarLayout> */}
           {/* <div className="mb-4">
               <CommandMenuTrigger />
             </div> */}
-          {children}
+          <SidebarInset className="px-5 pt-2.5 pb-5">
+            <div className="flex justify-end mb-4">
+              <ThemeToggle />
+            </div>
+            {children}
+          </SidebarInset>
           {/* </SidebarLayout> */}
         </Providers>
       </body>
