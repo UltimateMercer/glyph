@@ -28,7 +28,7 @@ export const EventCard = ({
 
       <div
         className={cn(
-          "rounded-lg border text-card-foreground shadow-md group dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 backdrop-blur-sm transition-all duration-200 cursor-pointer",
+          "rounded-md border text-card-foreground shadow-md group dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 backdrop-blur-sm transition-all duration-200 cursor-pointer",
           styles.hoverBorder,
           styles.hoverBg
         )}
