@@ -30,6 +30,7 @@ import {
   CardTitle,
 } from "../ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
+import { PersonTimeline } from "./person-timeline";
 
 interface PersonProfileProps {
   person: Person | null;
@@ -51,7 +52,7 @@ export const PersonProfile = React.memo(
         <Sheet open={open} onOpenChange={onOpenChange}>
           <SheetContent
             side="left"
-            className="!max-w-6xl dark:border-blue-900/50 dark:bg-blue-950/50 border-blue-200 bg-white/90 backdrop-blur-sm px-4"
+            className="!max-w-6xl dark:border-blue-900/50 dark:bg-blue-950/50 border-blue-200 bg-white/90 backdrop-blur-sm px-4 m-2 rounded-md border max-h-[calc(100vh-16px)]"
           >
             <SheetHeader className="px-0">
               <SheetTitle>{person.name} Archive</SheetTitle>
@@ -331,6 +332,31 @@ export const PersonProfile = React.memo(
                         </CardContent>
                       </Card>
                     )}
+                </div>
+              </TabsContent>
+              <TabsContent
+                value="timeline"
+                className="h-full max-h-[60vh] overflow-y-auto pr-2"
+              >
+                <div className="space-y-6">
+                  {hasTimeline ? (
+                    <>
+                      <p>Timeline</p>
+                      <PersonTimeline person={person} />
+                      {/* <CharacterTimeline person={person} /> */}
+                    </>
+                  ) : (
+                    <Card className="border-blue-900/50 bg-blue-950/20 backdrop-blur-sm">
+                      <CardContent className="flex items-center justify-center h-64">
+                        <div className="text-center space-y-2">
+                          <Clock className="mx-auto h-12 w-12 text-blue-600" />
+                          <p className="text-blue-400">
+                            No timeline data available for this character
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
                 </div>
               </TabsContent>
             </Tabs>

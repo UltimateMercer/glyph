@@ -31,42 +31,44 @@ export const PersonCard = React.memo(
     };
     return (
       <>
-        {/* <div className="relative ">
-          <div className="flex flex-col gap-4 p-5 rounded-xl border border-blue-100 bg-gray-100 backdrop-blur-sm dark:border-blue-900/50 dark:bg-blue-950/20">
-            <div className="inline-flex items-center text-slate-700 gap-1 mb-2">
-              <File />
-              <h4 className="text-lg  font-medium italic">
-                {`${person.name.replace(/\s+/g, "-").toLowerCase()}-file`}
-              </h4>
-            </div>
-
-            <div className="relative h-60 rounded-lg">
-              <Image
-                src={getPersonImage(person) || "/placeholder.svg"}
-                alt={person.name}
-                className="object-cover w-full h-60 rounded-lg shadow-xl "
-                width={200}
-                height={200}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/50 to-transparent rounded-lg" />
-            </div>
-
-            <div className="p-2 rounded-md bg-white/75 dark:bg-slate-800 flex justify-end">
-              <Button
-                onClick={handleDrawerOpen}
+        <div className="group relative flex flex-col rounded-lg p-4 h-96 dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 backdrop-blur-sm transition-all duration-200 hover:ring-4 hover:ring-blue-500/25">
+          <Image
+            src={getPersonImage(person) || "/placeholder.svg"}
+            alt={person.name}
+            fill
+            className="object-cover rounded-lg grayscale"
+          />
+          <div className="absolute flex flex-col justify-end top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-blue-950/90 via-blue-950/60 to-transparent px-5 py-8 rounded-lg">
+            <h4 className="text-2xl font-bold text-blue-100 mb-2">
+              {person.name}
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              <Badge
                 variant="outline"
-                className="cursor-pointer"
+                className="border-blue-700 bg-blue-900/50 text-blue-300"
               >
-                {" "}
-                Read file
-              </Button>
+                {person.species}
+              </Badge>
+              <Badge
+                variant="outline"
+                className="border-blue-700 bg-blue-900/50 text-blue-300"
+              >
+                {person.affiliation}
+              </Badge>
             </div>
           </div>
-        </div> */}
-        <Card
-          key={person.id}
-          className="group relative rounded-md dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 backdrop-blur-sm transition-all duration-200 hover:ring-4 hover:ring-blue-500/25 py-0"
-        >
+          <div className="absolute -bottom-4 right-4">
+            <Button
+              onClick={handleDrawerOpen}
+              variant="outline"
+              className="cursor-pointer border-blue-900/50 bg-blue-950 hover:bg-blue-800 text-white hover:text-white group-hover:ring-4 group-hover:ring-blue-500/25"
+            >
+              {" "}
+              Ver Detalhes
+            </Button>
+          </div>
+        </div>
+        {/* <Card className="group relative rounded-md dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 backdrop-blur-sm transition-all duration-200 hover:ring-4 hover:ring-blue-500/25 py-0">
           <CardHeader className="relative overflow-hidden pb-0">
             <div className="relative h-60 -mx-6 rounded-md mb-4">
               <Image
@@ -84,9 +86,6 @@ export const PersonCard = React.memo(
                 </CardTitle>
               </div>
             </div>
-            {/* <CardDescription className="text-blue-300 line-clamp-2">
-              {person.description}
-            </CardDescription> */}
           </CardHeader>
           <CardContent className="space-y-4 pb-6">
             <div className="flex flex-wrap gap-2">
@@ -103,16 +102,6 @@ export const PersonCard = React.memo(
                 {person.affiliation}
               </Badge>
             </div>
-            {/* <div className="grid gap-3 text-sm">
-              <div className="flex items-center justify-between">
-                <span className="text-blue-400">Origin:</span>
-                <span className="text-blue-300">{person.origin}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-400">Status:</span>
-                <span className="text-blue-300">{person.status}</span>
-              </div>
-            </div> */}
           </CardContent>
           <div className="absolute -bottom-4 right-4">
             <Button
@@ -124,7 +113,7 @@ export const PersonCard = React.memo(
               Ver Detalhes
             </Button>
           </div>
-        </Card>
+        </Card> */}
       </>
     );
   }

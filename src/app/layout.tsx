@@ -6,9 +6,11 @@ import { Providers } from "@/components/providers";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 // import { ThemeProvider } from "./lib/theme-context"
 // import { SidebarLayout } from "./components/sidebar"
 // import { CommandMenuTrigger } from "./components/command-menu-trigger"
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,9 +33,10 @@ export default function RootLayout({
           {/* <div className="mb-4">
               <CommandMenuTrigger />
             </div> */}
-          <SidebarInset className="border dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 px-5 pt-2.5 pb-5">
+          <SidebarInset className="border dark:border-blue-900/50 dark:bg-blue-950/20 border-blue-200 bg-white/60 px-5 pt-2.5 pb-5 content-area">
             <div className="flex justify-end mb-4">
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
+              <AnimatedThemeToggler />
             </div>
             {children}
           </SidebarInset>
