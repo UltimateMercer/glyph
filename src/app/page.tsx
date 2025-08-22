@@ -48,6 +48,7 @@ import { QuickAccessCard } from "@/components/quick-access-card";
 import { overviewData } from "@/lib/overview-data";
 import { OverviewCard } from "@/components/overview-card";
 import GalacticStatusReportDialog from "@/components/galatic-status-report-dialog";
+import { NotchedCard } from "@/components/notched-card";
 
 export default function Dashboard() {
   const [showReport, setShowReport] = React.useState(false);
@@ -452,6 +453,25 @@ export default function Dashboard() {
             </Card>
           </div>
         </section>
+
+        <div className="">
+          <NotchedCard
+            position="bottom-right" // ✅ Type-safe: só aceita posições válidas
+            size={8} // ✅ Type-safe: número
+            className="bg-blue-400 px-4 py-2" // ✅ Type-safe: número
+          >
+            <h3 className="font-bold text-white">Card com Borda</h3>
+          </NotchedCard>
+          <NotchedCard
+            position="bottom-right" // ✅ Type-safe: só aceita posições válidas
+            size={20} // ✅ Type-safe: número
+            borderColor="bg-blue-400" // ✅ Type-safe: string opcional
+            borderWidth={2} // ✅ Type-safe: número
+          >
+            <h3 className="font-bold mb-2">Card com Borda</h3>
+            <p className="text-gray-600">Fundo branco, borda vermelha</p>
+          </NotchedCard>
+        </div>
 
         <GalacticStatusReportDialog
           showReport={showReport}
